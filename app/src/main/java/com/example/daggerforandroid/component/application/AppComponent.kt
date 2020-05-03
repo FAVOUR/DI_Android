@@ -20,6 +20,8 @@ interface AppComponent:AndroidInjector<BaseApplication> {
     interface Builder{
         fun build(): AppComponent
 
+
+        //Causes the instance of App component Application tp be available to every module attached to in this component
         @BindsInstance
         fun application(appComponent:Application): Builder
     }

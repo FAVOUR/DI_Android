@@ -12,12 +12,13 @@ import dagger.Provides
 class AppModule {
 
 
-//    companion object {
-//        @JvmStatic
+@Module
+    companion object {
+        @JvmStatic
         @Provides
         fun getValue(): String {
             return "Dummy Value for Verifying All is well "
         }
 
-//    }
+    }
 }
