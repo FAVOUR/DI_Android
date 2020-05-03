@@ -1,6 +1,6 @@
 package com.example.daggerforandroid
 
-import com.example.daggerforandroid.component.DaggerAppComponent
+import com.example.daggerforandroid.component.application.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
