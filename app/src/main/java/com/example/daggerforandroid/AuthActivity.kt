@@ -1,7 +1,11 @@
 package com.example.daggerforandroid
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.auth_activity.*
 import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity()  {
@@ -12,10 +16,30 @@ class AuthActivity : DaggerAppCompatActivity()  {
     @Inject
    lateinit var yolo:String
 
+    @Inject
+    lateinit var requestManager: RequestManager
+
+
+    @Inject
+    lateinit var logo: Drawable
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.auth_activity)
 
         Log.i(TAG, yolo )
+
+     setImage()
+
+
+    }
+
+    fun setImage(){
+        requestManager
+            .load(logo)
+            .into(login_logo)
     }
 }
