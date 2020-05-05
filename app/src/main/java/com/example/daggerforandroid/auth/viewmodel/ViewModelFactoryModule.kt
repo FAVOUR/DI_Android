@@ -1,5 +1,6 @@
 package com.example.daggerforandroid.auth.viewmodel
 
+import com.example.daggerforandroid.viewmodels.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
 
@@ -7,5 +8,5 @@ import dagger.Module
  abstract class ViewModelFactoryModule {
 
     @Binds
-    abstract  fun viewModelFactoty
+    abstract  fun bindFactory(viewModelProviderFactory: ViewModelProviderFactory):  ViewModelProviderFactory
 }
