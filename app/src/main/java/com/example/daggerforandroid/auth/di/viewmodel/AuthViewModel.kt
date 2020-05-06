@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.auth.viewmodel
+package com.example.daggerforandroid.auth.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject

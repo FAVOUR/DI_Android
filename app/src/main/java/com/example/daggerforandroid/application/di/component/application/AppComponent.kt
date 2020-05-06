@@ -1,9 +1,10 @@
-package com.example.daggerforandroid.di.component.application
+package com.example.daggerforandroid.application.di.component.application
 
 import android.app.Application
 import com.example.daggerforandroid.application.BaseApplication
-import com.example.daggerforandroid.di.module.activity.ActivityBuildersModule
-import com.example.daggerforandroid.di.module.application.AppModule
+import com.example.daggerforandroid.application.di.module.activity.ActivityBuildersModule
+import com.example.daggerforandroid.application.di.module.application.AppModule
+import com.example.daggerforandroid.application.di.module.viewmodel.ViewModelFactoryModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -15,7 +16,8 @@ import javax.inject.Singleton
      modules = [
                 AndroidInjectionModule::class,
                 ActivityBuildersModule::class,
-                 AppModule::class]
+                 AppModule::class,
+                 ViewModelFactoryModule::class]
 )
 interface AppComponent:AndroidInjector<BaseApplication> {
 

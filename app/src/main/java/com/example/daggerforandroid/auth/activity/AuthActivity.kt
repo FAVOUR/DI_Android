@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestManager
 import com.example.daggerforandroid.R
-import com.example.daggerforandroid.auth.viewmodel.AuthViewModel
-import com.example.daggerforandroid.di.viewmodels.ViewModelProviderFactory
+import com.example.daggerforandroid.auth.di.viewmodel.AuthViewModel
+import com.example.daggerforandroid.application.di.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.auth_activity.*
 import javax.inject.Inject

@@ -1,6 +1,6 @@
-package com.example.daggerforandroid.auth.viewmodel
+package com.example.daggerforandroid.application.di.module.viewmodel
 
-import com.example.daggerforandroid.di.viewmodels.ViewModelProviderFactory
+import com.example.daggerforandroid.application.di.viewmodels.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
 
