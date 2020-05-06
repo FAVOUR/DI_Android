@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.component.application
+package com.example.daggerforandroid.di.module.application
 
 import android.app.Application
 import android.graphics.drawable.Drawable

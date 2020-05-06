@@ -1,8 +1,9 @@
-package com.example.daggerforandroid.component.application
+package com.example.daggerforandroid.di.component.application
 
 import android.app.Application
-import com.example.daggerforandroid.BaseApplication
-import com.example.daggerforandroid.module.ActivityBuildersModule
+import com.example.daggerforandroid.application.BaseApplication
+import com.example.daggerforandroid.di.module.activity.ActivityBuildersModule
+import com.example.daggerforandroid.di.module.application.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

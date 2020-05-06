@@ -1,14 +1,12 @@
-package com.example.daggerforandroid
+package com.example.daggerforandroid.auth.activity
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.example.daggerforandroid.R
 import com.example.daggerforandroid.auth.viewmodel.AuthViewModel
-import com.example.daggerforandroid.viewmodels.ViewModelProviderFactory
+import com.example.daggerforandroid.di.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.auth_activity.*
 import javax.inject.Inject
