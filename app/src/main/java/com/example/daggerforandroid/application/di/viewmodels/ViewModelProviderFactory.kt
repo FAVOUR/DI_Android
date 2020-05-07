@@ -13,7 +13,7 @@ class ViewModelProviderFactory: ViewModelProvider.Factory {
         null
 
     @Inject
-    fun ViewModelProviderFactory(creators: Map<Class<out ViewModel?>?, Provider<ViewModel?>?>?) {
+    fun ViewModelProviderFactory(creators: MutableMap<Class<out ViewModel?>?, Provider<ViewModel?>?>?) {
         this.creators = creators
     }
 
