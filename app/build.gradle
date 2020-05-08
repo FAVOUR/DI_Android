@@ -44,6 +44,12 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
+
+ /*   annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    *//* Dagger2 - default dependency *//*
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+*/
     // Glide
     def glideVersion = "4.9.0"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
@@ -57,6 +63,9 @@ dependencies {
     // ViewModel and LiveData
     def lifecycle_version = '2.2.0-alpha03'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+
+
 
 
     testImplementation 'junit:junit:4.12'

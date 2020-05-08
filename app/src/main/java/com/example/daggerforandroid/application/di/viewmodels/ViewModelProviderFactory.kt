@@ -5,17 +5,17 @@ import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
 
-class ViewModelProviderFactory: ViewModelProvider.Factory {
+class ViewModelProviderFactory @Inject constructor(val creators: MutableMap<Class<out ViewModel?>?, Provider<ViewModel?>?>?): ViewModelProvider.Factory {
 
     val TAG = "ViewModelProviderFactor"
 
-    var creators: Map<Class<out ViewModel?>?, Provider<ViewModel?>?>? =
-        null
+//    var creators: Map<Class<out ViewModel?>?, Provider<ViewModel?>?>? =
+//        null
 
-    @Inject
-    fun ViewModelProviderFactory(creators: MutableMap<Class<out ViewModel?>?, Provider<ViewModel?>?>?) {
-        this.creators = creators
-    }
+//    @Inject
+//    fun ViewModelProviderFactory {
+//        this.creators = creators
+//    }
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T{
         var creator: Provider<out ViewModel?>? = creators!![modelClass]
