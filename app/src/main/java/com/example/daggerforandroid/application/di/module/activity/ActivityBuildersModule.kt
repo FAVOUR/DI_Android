@@ -1,6 +1,7 @@
 package com.example.daggerforandroid.application.di.module.activity
 
 import com.example.daggerforandroid.auth.activity.AuthActivity
+import com.example.daggerforandroid.auth.di.module.AuthApiModule
 import com.example.daggerforandroid.auth.di.module.AuthViewModelModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,7 +14,7 @@ import dagger.android.ContributesAndroidInjector
   abstract  class ActivityBuildersModule {
 
   @ContributesAndroidInjector(
-    modules = [AuthViewModelModule::class]
+    modules = [AuthViewModelModule::class, AuthApiModule::class]
   )
     abstract fun contributesAuthActivity(): AuthActivity
 }

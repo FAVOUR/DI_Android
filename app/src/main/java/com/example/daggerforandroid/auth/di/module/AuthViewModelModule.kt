@@ -1,7 +1,7 @@
 package com.example.daggerforandroid.auth.di.module
 
 import androidx.lifecycle.ViewModel
-import com.example.daggerforandroid.auth.di.viewmodel.AuthViewModel
+import com.example.daggerforandroid.auth.viewmodel.AuthViewModel
 import com.example.daggerforandroid.application.di.keys.ViewModelKey
 import dagger.Binds
 import dagger.Module
