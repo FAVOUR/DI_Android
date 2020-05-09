@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.auth.netwotk
+package com.example.daggerforandroid.auth.services
 
 import okhttp3.Response
 import retrofit2.Call

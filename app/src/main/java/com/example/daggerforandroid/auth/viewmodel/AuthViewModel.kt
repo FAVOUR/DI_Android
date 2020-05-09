@@ -2,7 +2,7 @@ package com.example.daggerforandroid.auth.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.daggerforandroid.auth.netwotk.AuthApi
+import com.example.daggerforandroid.auth.services.AuthApi
 import javax.inject.Inject
 
  class  AuthViewModel  @Inject constructor(auth:AuthApi): ViewModel() {
