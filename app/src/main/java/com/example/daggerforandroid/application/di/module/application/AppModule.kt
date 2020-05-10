@@ -27,7 +27,7 @@ class AppModule {
 
     @Singleton
     @JvmStatic
-        @Provides
+    @Provides
         fun getValue(): String {
             return "Dummy Value for Verifying All is well "
         }

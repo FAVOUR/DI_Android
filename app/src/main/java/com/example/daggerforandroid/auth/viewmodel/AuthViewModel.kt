@@ -10,10 +10,12 @@ import javax.inject.Inject
   init {
       Log.d("ViewModel","ViewModel is Working ")
 
-      if(auth !=null)
-          Log.d("ViewModel","AuthApi has been instantiated")
-      else
-          Log.d("ViewModel","AuthApi is not instantiated")
+      if(auth !=null) {
+          Log.d("ViewModel", "AuthApi has been instantiated")
+      }
+      else {
+          Log.d("ViewModel", "AuthApi is not instantiated")
+      }
 
 
   }
