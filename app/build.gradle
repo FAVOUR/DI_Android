@@ -78,6 +78,11 @@ dependencies {
     def rxjava_version = '2.2.7'
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
 
+    //Login Interceptor
+
+    def  logger_version = '4.2.1'
+
+    implementation "com.squareup.okhttp3:logging-interceptor:$logger_version"
 
     // Rx-Retrofit Call Adapter
     def rxcalladapter_version = '2.5.0'
