@@ -3,27 +3,20 @@ package com.example.daggerforandroid.auth.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class User {
+data class User (
     @SerializedName("id")
     @Expose
-    var id = 0
+    var id:Int = 0,
     @SerializedName("username")
     @Expose
-    var username: String? = null
+    var username: String? = null,
     @SerializedName("email")
     @Expose
-    var email: String? = null
+    var email: String? = null,
     @SerializedName("website")
     @Expose
     var website: String? = null
+)
 
-    constructor(id: Int, username: String?, email: String?, website: String?) {
-        this.id = id
-        this.username = username
-        this.email = email
-        this.website = website
-    }
 
-    constructor() {}
 
-}

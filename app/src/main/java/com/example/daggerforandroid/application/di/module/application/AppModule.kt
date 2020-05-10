@@ -11,9 +11,11 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.logging.Logger
 import javax.inject.Singleton
 
 /**
@@ -63,11 +65,12 @@ class AppModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient.Builder): Retrofit {
         return  Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constants.BASE_URL)
+            .client(okHttpClient.build())
             .build()
 
     }
@@ -76,9 +79,10 @@ class AppModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun  client(){
+    fun  client(interceptor: HttpLoggingInterceptor):OkHttpClient.Builder{
         var client:OkHttpClient.Builder=OkHttpClient.Builder()
-            .addInterceptor()
+            .addInterceptor(interceptor)
+            return client
 
     }
 
@@ -86,9 +90,10 @@ class AppModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun  LoggerInterceptor(){
-        var loggerr=
-            .addInterceptor()
+    fun  LoggerInterceptor():HttpLoggingInterceptor{
+        var logger=HttpLoggingInterceptor()
+                logger.level=HttpLoggingInterceptor.Level.BODY
+        return logger
     }
 
 
