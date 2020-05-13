@@ -20,25 +20,28 @@ import javax.inject.Inject
               .onErrorReturn(object :Function<Throwable,User>{
                   override fun apply(t: Throwable): User {
                       var user = User()
-                       user.id=1
+                       user.id=-1
                       return  user
                   }
 
               })
                                      .subscribeOn(Schedulers.io())
               .map(object  : Function<User,AuthResource<User>>{
-                  override fun apply(t: User): AuthResource<User> {
-                      if(t.id == -1){
+                  override fun apply(user: User): AuthResource<User> {
+                      if(user.id == -1){
                           return  AuthResource.error("An Error Occured",null)
+                      }else{
+                          return  AuthResource.authenticated(user)
+
                       }
                   }
               })
 
            val source = LiveDataReactiveStreams.fromPublisher(data)
 
-           authUser.addSource(source , object : Observer<User> {
-               override fun onChanged(t: User?) {
-                   authUser.value=AuthResource.loading(null as User)
+           authUser.addSource(source , object : Observer<AuthResource<User>>{
+               override fun onChanged(t: AuthResource<User>?) {
+                   authUser.value=AuthResource.loading(null )
 //                   authUser.value=t
                    authUser.removeSource(source)
                }
