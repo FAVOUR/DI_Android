@@ -67,16 +67,23 @@ class AuthActivity : DaggerAppCompatActivity()  {
                   when(t.status){
 
                       AuthStatus.AUTHENTICATED->{
+                          showProgressBar(showProgressBar = false)
+                          Toast.makeText(this@AuthActivity,t.message,Toast.LENGTH_SHORT).show()
 
                       }
                       AuthStatus.ERROR->{
                           showProgressBar(showProgressBar = false)
+                          Toast.makeText(this@AuthActivity,t.message,Toast.LENGTH_SHORT).show()
 
                       }
                   AuthStatus.LOADING->{
                        showProgressBar(showProgressBar = true)
+
                   }
                       AuthStatus.NOT_AUTHENTICATED->{
+                          showProgressBar(showProgressBar = false)
+                          Toast.makeText(this@AuthActivity,t.message,Toast.LENGTH_SHORT).show()
+
 
                       }
                   }
