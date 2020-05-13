@@ -6,9 +6,6 @@ class AuthResource<T>(
     val message: String?
 ) {
 
-    enum class AuthStatus {
-        AUTHENTICATED, ERROR, LOADING, NOT_AUTHENTICATED
-    }
 
     companion object {
         fun <T> authenticated(data: T?): AuthResource<T?> {
