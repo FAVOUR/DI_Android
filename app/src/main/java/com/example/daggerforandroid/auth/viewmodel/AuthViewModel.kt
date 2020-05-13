@@ -41,8 +41,7 @@ import javax.inject.Inject
 
            authUser.addSource(source , object : Observer<AuthResource<User>>{
                override fun onChanged(t: AuthResource<User>?) {
-                   authUser.value=AuthResource.loading(null )
-//                   authUser.value=t
+                   authUser.value=t
                    authUser.removeSource(source)
                }
            })

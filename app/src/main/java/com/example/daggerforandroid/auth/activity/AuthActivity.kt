@@ -16,6 +16,7 @@ import com.example.daggerforandroid.application.di.viewmodels.ViewModelProviderF
 import com.example.daggerforandroid.auth.model.AuthResource
 import com.example.daggerforandroid.auth.model.AuthStatus
 import com.example.daggerforandroid.auth.model.User
+import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.auth_activity.*
 import javax.inject.Inject
@@ -63,6 +64,7 @@ class AuthActivity : DaggerAppCompatActivity()  {
 
         authViewModel.observeUser()?.observe(this, object : Observer<AuthResource<User>> {
             override fun onChanged(t: AuthResource<User>) {
+                Log.e("Throwable", Gson().toJson(t))
 
                   when(t.status){
 
