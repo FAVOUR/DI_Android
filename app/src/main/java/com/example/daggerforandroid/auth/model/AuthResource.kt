@@ -1,14 +1,12 @@
 package com.example.daggerforandroid.auth.model
 
-class AuthResource<T>(
-    val status: AuthStatus,
+class AuthResource<out T>(val status: AuthStatus,
     val data: T?,
-    val message: String?
-) {
+    val message: String? ) {
 
 
     companion object {
-        fun <T> authenticated(data: T?): AuthResource<T?> {
+        fun <T> authenticated(data: T?): AuthResource<T> {
             return AuthResource(
                 AuthStatus.AUTHENTICATED,
                 data,
@@ -16,7 +14,7 @@ class AuthResource<T>(
             )
         }
 
-        fun <T> error(msg: String, data: T?): AuthResource<T?> {
+        fun <T> error(msg: String, data: T?): AuthResource<T> {
             return AuthResource(
                 AuthStatus.ERROR,
                 data,
@@ -24,7 +22,7 @@ class AuthResource<T>(
             )
         }
 
-        fun <T> loading(data: T?): AuthResource<T?> {
+        fun <T> loading(data: T?): AuthResource<T>{
             return AuthResource(
                 AuthStatus.LOADING,
                 data,
@@ -32,7 +30,7 @@ class AuthResource<T>(
             )
         }
 
-        fun <T> logout(): AuthResource<T?> {
+        fun <T> logout(): AuthResource<T> {
             return AuthResource(
                 AuthStatus.NOT_AUTHENTICATED,
                 null,
