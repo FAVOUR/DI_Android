@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class SessionManager @Inject constructor() {
 
+
     var catchedUser: MediatorLiveData<AuthResource<User>> = MediatorLiveData()
 
     fun checkSessionData(source : LiveData<AuthResource<User>>){
@@ -26,7 +27,13 @@ class SessionManager @Inject constructor() {
         }
     }
 
+    fun logout (){
+           catchedUser.value = (AuthResource.logout())
+    }
 
+    fun catchedUser():LiveData<AuthResource<User>>{
+        return  catchedUser
+    }
 
 
 }
