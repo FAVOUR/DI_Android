@@ -1,6 +1,7 @@
 package com.example.daggerforandroid.auth.viewmodel
 
 import androidx.lifecycle.*
+import com.example.daggerforandroid.application.SessionManager
 import com.example.daggerforandroid.auth.model.AuthResource
 import com.example.daggerforandroid.auth.model.User
 import com.example.daggerforandroid.auth.services.AuthApi
@@ -8,7 +9,7 @@ import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
- class  AuthViewModel  @Inject constructor( val auth:AuthApi) : ViewModel() {
+ class  AuthViewModel  @Inject constructor( val auth:AuthApi, val sessionManager:SessionManager) : ViewModel() {
 
 //      Log.d("ViewModel","ViewModel is Working ")
 
@@ -16,39 +17,39 @@ import javax.inject.Inject
 //     var authUser : MutableLiveData<User> = MutableLiveData()
 
        fun authenticateWithUserId(id:Int){
-          val data = auth.getUser(id)
-              .onErrorReturn(object :Function<Throwable,User>{
-                  override fun apply(t: Throwable): User {
-                      var user = User()
-                       user.id=-1
-                      return  user
-                  }
-
-              })
-                                     .subscribeOn(Schedulers.io())
-              .map(object  : Function<User,AuthResource<User>>{
-                  override fun apply(user: User): AuthResource<User> {
-                      if(user.id == -1){
-                          return  AuthResource.error("An Error Occured",null)
-                      }else{
-                          return  AuthResource.authenticated(user)
-
-                      }
-                  }
-              })
-
-           val source = LiveDataReactiveStreams.fromPublisher(data)
-
-           authUser.addSource(source , object : Observer<AuthResource<User>>{
-               override fun onChanged(t: AuthResource<User>?) {
-                   authUser.value=t
-                   authUser.removeSource(source)
-               }
-           })
+           sessionManager.checkSessionData(querywithUserId(id))
        }
 
-     fun observeUser() :LiveData<AuthResource<User>>?{
-         return  authUser
+     fun querywithUserId(userid:Int):LiveData<AuthResource<User>>{
+         val data = auth.getUser(userid)
+             .onErrorReturn(object :Function<Throwable,User>{
+                 override fun apply(t: Throwable): User {
+                     var user = User()
+                     user.id=-1
+                     return  user
+                 }
+
+             })
+             .subscribeOn(Schedulers.io())
+             .map(object  : Function<User,AuthResource<User>>{
+                 override fun apply(user: User): AuthResource<User> {
+                     if(user.id == -1){
+                         return  AuthResource.error("An Error Occured",null)
+                     }else{
+                         return  AuthResource.authenticated(user)
+
+                     }
+                 }
+             })
+
+         val source = LiveDataReactiveStreams.fromPublisher(data)
+
+         return  source
+
+     }
+
+     fun observeAuthState() :LiveData<AuthResource<User>>?{
+         return  sessionManager.catchedUser()
      }
 
 /*

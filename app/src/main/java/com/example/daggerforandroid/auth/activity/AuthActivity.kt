@@ -62,7 +62,7 @@ class AuthActivity : DaggerAppCompatActivity()  {
         }
 
 
-        authViewModel.observeUser()?.observe(this, object : Observer<AuthResource<User>> {
+        authViewModel.observeAuthState()?.observe(this, object : Observer<AuthResource<User>> {
             override fun onChanged(t: AuthResource<User>) {
                 Log.e("Throwable", Gson().toJson(t))
 
