@@ -13,9 +13,9 @@ import com.bumptech.glide.RequestManager
 import com.example.daggerforandroid.R
 import com.example.daggerforandroid.auth.viewmodel.AuthViewModel
 import com.example.daggerforandroid.application.di.viewmodels.ViewModelProviderFactory
-import com.example.daggerforandroid.auth.model.AuthResource
-import com.example.daggerforandroid.auth.model.AuthStatus
-import com.example.daggerforandroid.auth.model.User
+import com.example.daggerforandroid.mainApp.auth.model.AuthResource
+import com.example.daggerforandroid.mainApp.auth.model.AuthStatus
+import com.example.daggerforandroid.mainApp.auth.model.User
 import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.auth_activity.*

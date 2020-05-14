@@ -1,6 +1,6 @@
-package com.example.daggerforandroid.auth.di.module
+package com.example.daggerforandroid.mainApp.auth.di.module
 
-import com.example.daggerforandroid.auth.services.AuthApi
+import com.example.daggerforandroid.mainApp.auth.services.AuthApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

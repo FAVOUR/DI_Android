@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.auth.model
+package com.example.daggerforandroid.mainApp.auth.model
 
 class AuthResource<out T>(val status: AuthStatus,
     val data: T?,

@@ -1,11 +1,11 @@
-//package com.example.daggerforandroid.auth.viewmodel;
+//package com.example.daggerforandroid.mainApp.auth.viewmodel;
 //
 //import android.util.Log;
 //
 //import androidx.lifecycle.ViewModel;
 //
-//import com.example.daggerforandroid.auth.model.User;
-//import com.example.daggerforandroid.auth.services.AuthApi;
+//import com.example.daggerforandroid.mainApp.auth.model.User;
+//import com.example.daggerforandroid.mainApp.auth.services.AuthApi;
 //
 //import javax.inject.Inject;
 //

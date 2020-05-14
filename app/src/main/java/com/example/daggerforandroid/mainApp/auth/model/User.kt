@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.auth.model
+package com.example.daggerforandroid.mainApp.auth.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

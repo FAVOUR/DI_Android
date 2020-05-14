@@ -1,9 +1,7 @@
-package com.example.daggerforandroid.auth.services
+package com.example.daggerforandroid.mainApp.auth.services
 
-import com.example.daggerforandroid.auth.model.User
+import com.example.daggerforandroid.mainApp.auth.model.User
 import io.reactivex.Flowable
-import okhttp3.Response
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 

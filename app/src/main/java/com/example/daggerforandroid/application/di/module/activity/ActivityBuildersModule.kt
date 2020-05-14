@@ -1,8 +1,8 @@
 package com.example.daggerforandroid.application.di.module.activity
 
 import com.example.daggerforandroid.auth.activity.AuthActivity
-import com.example.daggerforandroid.auth.di.module.AuthApiModule
-import com.example.daggerforandroid.auth.di.module.AuthViewModelModule
+import com.example.daggerforandroid.mainApp.auth.di.module.AuthApiModule
+import com.example.daggerforandroid.mainApp.auth.di.module.AuthViewModelModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
