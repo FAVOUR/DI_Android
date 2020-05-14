@@ -1,0 +1,32 @@
+package com.example.daggerforandroid.application
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.Observer
+import com.example.daggerforandroid.auth.activity.AuthActivity
+import com.example.daggerforandroid.auth.model.AuthResource
+import com.example.daggerforandroid.auth.model.User
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class SessionManager @Inject constructor() {
+
+    var catchedUser: MediatorLiveData<AuthResource<User>> = MediatorLiveData()
+
+    fun checkSessionData(source : LiveData<AuthResource<User>>){
+        if(catchedUser != null ){
+
+            catchedUser.addSource(source,object : Observer<AuthResource<User>>{
+                override fun onChanged(t: AuthResource<User>?) {
+                    catchedUser.value=t
+                    catchedUser.removeSource(source)
+                }
+            })
+        }
+    }
+
+
+
+
+}
