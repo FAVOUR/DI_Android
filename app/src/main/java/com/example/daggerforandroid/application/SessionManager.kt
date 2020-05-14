@@ -15,8 +15,9 @@ class SessionManager @Inject constructor() {
 
     var catchedUser: MediatorLiveData<AuthResource<User>> = MediatorLiveData()
 
-    fun checkSessionData(source : LiveData<AuthResource<User>>){
+    fun authenticateUser(source : LiveData<AuthResource<User>>){
         if(catchedUser != null ){
+            catchedUser.value= AuthResource.loading(null)
 
             catchedUser.addSource(source,object : Observer<AuthResource<User>>{
                 override fun onChanged(t: AuthResource<User>?) {

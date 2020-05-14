@@ -17,7 +17,7 @@ import javax.inject.Inject
 //     var authUser : MutableLiveData<User> = MutableLiveData()
 
        fun authenticateWithUserId(id:Int){
-           sessionManager.checkSessionData(querywithUserId(id))
+           sessionManager.authenticateUser(querywithUserId(id))
        }
 
      fun querywithUserId(userid:Int):LiveData<AuthResource<User>>{
