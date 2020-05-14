@@ -45,7 +45,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
 
- /*   annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    /*   annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
 
     *//* Dagger2 - default dependency *//*
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
@@ -80,13 +80,14 @@ dependencies {
 
     //Login Interceptor
 
-    def  logger_version = '4.2.1'
+    def logger_version = '4.2.1'
 
     implementation "com.squareup.okhttp3:logging-interceptor:$logger_version"
 
     // Rx-Retrofit Call Adapter
     def rxcalladapter_version = '2.5.0'
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version" // Retrofit call adapter
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version"
+    // Retrofit call adapter
 
 
     // Reactive Streams (convert Observable to LiveData)

@@ -1,5 +1,6 @@
 package com.example.daggerforandroid.auth.activity
 import android.app.ProgressDialog
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.opengl.Visibility
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.example.daggerforandroid.application.di.viewmodels.ViewModelProviderF
 import com.example.daggerforandroid.mainApp.auth.model.AuthResource
 import com.example.daggerforandroid.mainApp.auth.model.AuthStatus
 import com.example.daggerforandroid.mainApp.auth.model.User
+import com.example.daggerforandroid.mainApp.home.HomeActivity
 import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.auth_activity.*
@@ -71,6 +73,7 @@ class AuthActivity : DaggerAppCompatActivity()  {
                       AuthStatus.AUTHENTICATED->{
                           showProgressBar(showProgressBar = false)
                           Toast.makeText(this@AuthActivity,t.message,Toast.LENGTH_SHORT).show()
+                          login()
 
                       }
                       AuthStatus.ERROR->{
@@ -97,6 +100,11 @@ class AuthActivity : DaggerAppCompatActivity()  {
 
 
 
+    }
+
+    fun login(){
+        var intent = Intent(this ,HomeActivity::class.java)
+        startActivity(intent)
     }
 
     private fun attemptLogin(userInput: String) {

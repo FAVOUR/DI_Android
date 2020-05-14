@@ -16,7 +16,7 @@ import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class BaseActivity :DaggerAppCompatActivity() {
+ open class BaseActivity :DaggerAppCompatActivity() {
 
 
     @Inject
