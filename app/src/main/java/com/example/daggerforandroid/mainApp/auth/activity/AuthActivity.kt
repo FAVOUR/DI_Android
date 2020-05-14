@@ -51,7 +51,6 @@ class AuthActivity : DaggerAppCompatActivity()  {
         Log.i(TAG, yolo )
 
      setImage()
-//        authViewModel.getUser()
 
 
         login_button.setOnClickListener {
