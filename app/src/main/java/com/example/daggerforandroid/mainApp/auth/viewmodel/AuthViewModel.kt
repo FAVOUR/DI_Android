@@ -2,14 +2,14 @@ package com.example.daggerforandroid.auth.viewmodel
 
 import androidx.lifecycle.*
 import com.example.daggerforandroid.application.SessionManager
-import com.example.daggerforandroid.auth.model.AuthResource
-import com.example.daggerforandroid.auth.model.User
-import com.example.daggerforandroid.auth.services.AuthApi
+import com.example.daggerforandroid.mainApp.auth.model.AuthResource
+import com.example.daggerforandroid.mainApp.auth.model.User
+import com.example.daggerforandroid.mainApp.auth.services.AuthApi
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
- class  AuthViewModel  @Inject constructor( val auth:AuthApi, val sessionManager:SessionManager) : ViewModel() {
+ class  AuthViewModel  @Inject constructor(val auth: AuthApi, val sessionManager:SessionManager) : ViewModel() {
 
 //      Log.d("ViewModel","ViewModel is Working ")
 
@@ -49,7 +49,7 @@ import javax.inject.Inject
      }
 
      fun observeAuthState() :LiveData<AuthResource<User>>?{
-         return  sessionManager.catchedUser()
+         return  sessionManager.getAuthUser()
      }
 
 /*

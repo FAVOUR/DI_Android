@@ -31,7 +31,7 @@ class SessionManager @Inject constructor() {
            catchedUser.value = (AuthResource.logout())
     }
 
-    fun catchedUser():LiveData<AuthResource<User>>{
+    fun getAuthUser():LiveData<AuthResource<User>>{
         return  catchedUser
     }
 
