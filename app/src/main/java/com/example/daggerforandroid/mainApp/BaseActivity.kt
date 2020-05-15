@@ -15,14 +15,18 @@ import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
- open class BaseActivity :DaggerAppCompatActivity() {
+ open  class BaseActivity :DaggerAppCompatActivity() {
 
 
     @Inject
    lateinit var sessionManager :SessionManager
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Log.e(" is sessionManager empty ", (sessionManager ==null).toString())
+
+        Log.e("sessionManager  sessionManager.catchedUser.value", Gson().toJson(sessionManager.catchedUser.value))
 
         subscribeObserver()
 
@@ -62,6 +66,7 @@ import javax.inject.Inject
          fun logout(){
              var intent = Intent(this ,AuthActivity::class.java)
              startActivity(intent)
+             finish()
          }
 
 }
