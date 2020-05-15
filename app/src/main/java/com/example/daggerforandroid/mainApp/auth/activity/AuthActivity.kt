@@ -91,7 +91,6 @@ class AuthActivity : DaggerAppCompatActivity()  {
 
                       }
                   }
-//                Toast.makeText(this@AuthActivity,"User with user name  ${t!!.} logged in ", Toast.LENGTH_SHORT).show()
 
 
             }

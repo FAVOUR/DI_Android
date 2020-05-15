@@ -12,7 +12,6 @@ import com.example.daggerforandroid.mainApp.auth.model.AuthResource
 import com.example.daggerforandroid.mainApp.auth.model.AuthStatus
 import com.example.daggerforandroid.mainApp.auth.model.User
 import com.google.gson.Gson
-import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
