@@ -22,6 +22,7 @@ import javax.inject.Singleton
 )
 interface AppComponent:AndroidInjector<BaseApplication> {
 
+//Can be used when you wish to use it fron the instance of this component
     fun sessionManager () : SessionManager
 
     @Component.Builder

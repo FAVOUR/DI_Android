@@ -16,6 +16,7 @@ import com.example.daggerforandroid.mainApp.BaseActivity
 import com.example.daggerforandroid.mainApp.auth.model.AuthResource
 import com.example.daggerforandroid.mainApp.auth.model.AuthStatus
 import com.example.daggerforandroid.mainApp.auth.model.User
+import com.example.daggerforandroid.mainApp.home.fragment.ProfileFragment
 import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -30,6 +31,8 @@ class HomeActivity : BaseActivity() {
 
      Toast.makeText(this,"Welcome to this App",Toast.LENGTH_SHORT).show()
 
+        setupFragment()
+
     }
 
 
@@ -42,6 +45,12 @@ class HomeActivity : BaseActivity() {
         return true
     }
 
+
+     fun setupFragment(){
+         var fragment = supportFragmentManager.beginTransaction()
+                                             .replace(R.id.fragment_container,ProfileFragment())
+                                             .commit()
+     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
