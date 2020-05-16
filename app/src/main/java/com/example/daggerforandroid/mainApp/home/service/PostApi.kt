@@ -1,4 +1,4 @@
-package com.example.daggerforandroid.mainApp.home.viewmodel
+package com.example.daggerforandroid.mainApp.home.service
 
 import com.example.daggerforandroid.mainApp.home.model.Post
 import io.reactivex.Flowable

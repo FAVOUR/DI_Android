@@ -5,8 +5,9 @@ import com.example.daggerforandroid.mainApp.auth.di.module.AuthApiModule
 import com.example.daggerforandroid.mainApp.auth.di.module.AuthViewModelModule
 import com.example.daggerforandroid.mainApp.home.HomeActivity
 import com.example.daggerforandroid.mainApp.home.di.module.PostApiModule
-import com.example.daggerforandroid.mainApp.home.di.module.ProfileViewModelModule
-import com.example.daggerforandroid.mainApp.home.fragment.di.MainFragmentBuilderModule
+import com.example.daggerforandroid.mainApp.home.di.module.HomeViewModelModule
+import com.example.daggerforandroid.mainApp.home.di.module.PostViewModelModule
+import com.example.daggerforandroid.mainApp.home.fragment.di.HomeFragmentBuilderModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -22,6 +23,6 @@ import dagger.android.ContributesAndroidInjector
   )
     abstract fun contributesAuthActivity(): AuthActivity
 
-    @ContributesAndroidInjector(modules = [MainFragmentBuilderModule::class,ProfileViewModelModule::class, PostApiModule::class])
+    @ContributesAndroidInjector(modules = [HomeFragmentBuilderModule::class,HomeViewModelModule::class, PostApiModule::class, PostViewModelModule::class])
     abstract fun contributeHomeActivity():HomeActivity
 }

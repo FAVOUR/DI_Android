@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-   abstract class MainFragmentBuilderModule {
+   abstract class HomeFragmentBuilderModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentModule(): ProfileFragment
