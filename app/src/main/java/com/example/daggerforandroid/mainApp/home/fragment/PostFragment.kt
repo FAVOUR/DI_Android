@@ -3,8 +3,10 @@ package com.example.daggerforandroid.mainApp.home.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,12 +21,14 @@ import com.example.daggerforandroid.mainApp.home.model.Post
 import com.example.daggerforandroid.mainApp.home.model.Resource
 import com.example.daggerforandroid.mainApp.home.recyclerview.PostsRecyclerAdapter
 import com.example.daggerforandroid.mainApp.home.viewmodel.PostViewModel
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_posts.*
 import javax.inject.Inject
 
-class PostFragment : DaggerFragment() {
+class PostFragment : DaggerFragment(), NavigationView.OnNavigationItemSelectedListener{
 
     @Inject
     lateinit var viewmodelProviderFactory: ViewModelProviderFactory
@@ -86,4 +90,20 @@ class PostFragment : DaggerFragment() {
          })
 
      }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+         when(item.itemId){
+
+             R.id.profile ->{
+
+             }
+
+             R.id.post ->{
+
+             }
+         }
+//        item.setChecked(true)
+        drawer_layout.closeDrawer(GravityCompat.START)
+            return false
+    }
 }
