@@ -81,14 +81,15 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
         when(item.itemId){
 
             R.id.profile ->{
-
+             navController.navigate(R.id.nav_profile_fragment)
             }
 
             R.id.post ->{
+                navController.navigate(R.id.nav_post_fragment)
 
             }
         }
-        item.setChecked(true)
+        item.isChecked = true //Heights  the Item that it has been clicked
         drawer_layout.closeDrawer(GravityCompat.START)
         return false
     }
