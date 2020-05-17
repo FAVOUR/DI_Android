@@ -6,6 +6,7 @@ import com.example.daggerforandroid.application.SessionManager
 import com.example.daggerforandroid.mainApp.home.model.Post
 import com.example.daggerforandroid.mainApp.home.model.Resource
 import com.example.daggerforandroid.mainApp.home.service.PostApi
+import com.google.gson.Gson
 import io.reactivex.Flowable
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
@@ -19,14 +20,22 @@ class PostViewModel @Inject constructor(private val sessionManager: SessionManag
         Log.i("Init the postViewModel", "PostViewModel")
     }
 
-     private lateinit var mediatorLiveData : MediatorLiveData<Resource<List<Post?>>>
+     private  var mediatorLiveData : MediatorLiveData<Resource<List<Post?>>> = MediatorLiveData()
 
     fun getPost():LiveData<Resource<List<Post?>>> {
-        if (mediatorLiveData == null) {
-            mediatorLiveData = MediatorLiveData()
+
+//        Log.i("::mediatorLiveData.isInitialized",::mediatorLiveData.isInitialized.toString())
+//        if (!!(::mediatorLiveData.isInitialized)) {
+          try {
+//              Log.i("Heree ",::mediatorLiveData.isInitialized.toString())
+//            mediatorLiveData = MediatorLiveData()
             mediatorLiveData.value =Resource.loading(null)
 
-            var response : Flowable<Resource<List<Post?>>> =
+//            var response : Flowable<Resource<List<Post?>>> =
+
+              Log.i("sessionManager id  ",sessionManager.getAuthUser().value!!.data!!.id.toString())
+
+              var source: LiveData<Resource<List<Post?>>> = LiveDataReactiveStreams.fromPublisher(
 
                         postApi . getPostsFromUser (sessionManager.getAuthUser().value!!.data!!.id)
                     .onErrorReturn(object : Function<Throwable, List<Post>> {
@@ -54,9 +63,9 @@ class PostViewModel @Inject constructor(private val sessionManager: SessionManag
 
                     })
                       .subscribeOn(Schedulers.io())
+            )
 
-
-            var source: LiveData<Resource<List<Post?>>> = LiveDataReactiveStreams.fromPublisher(response)
+//            var source: LiveData<Resource<List<Post?>>> = LiveDataReactiveStreams.fromPublisher(response)
             mediatorLiveData.addSource(source, object : Observer<Resource<List<Post?>>> {
                     override fun onChanged(t: Resource<List<Post?>>) {
                         mediatorLiveData.value= t
@@ -64,7 +73,10 @@ class PostViewModel @Inject constructor(private val sessionManager: SessionManag
                     }
                 })
 
-        }
+
+        }catch (e:Throwable){
+          Log.i("error", Gson().toJson(e))}
+//        }
        return mediatorLiveData
     }
 }

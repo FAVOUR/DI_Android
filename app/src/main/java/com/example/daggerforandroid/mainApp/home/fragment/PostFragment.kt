@@ -40,7 +40,7 @@ class PostFragment : DaggerFragment() {
     }
 
      fun subScribeToObserver(){
-         postViewModel.getPost().removeObservers(viewLifecycleOwner)
+//         postViewModel.getPost().removeObservers(viewLifecycleOwner)
 
          postViewModel.getPost().observe(this, object :Observer<Resource<List<Post?>>>{
              override fun onChanged(t: Resource<List<Post?>>) {
