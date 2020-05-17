@@ -36,7 +36,7 @@ class PostFragment : DaggerFragment() {
 
         postViewModel= ViewModelProviders.of(this,viewmodelProviderFactory)[PostViewModel::class.java]
 
-
+        subScribeToObserver()
     }
 
      fun subScribeToObserver(){
