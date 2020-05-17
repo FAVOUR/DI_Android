@@ -72,6 +72,14 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
                  sessionManager.logout()
                  return true
              }
+             android.R.id.home ->{
+                 return if(drawer_layout.isDrawerOpen(GravityCompat.START)){
+                     drawer_layout.closeDrawer(GravityCompat.START)
+                     true
+                 }else{
+                     false
+                 }
+             }
              else -> return super.onOptionsItemSelected(item)
 
          }
@@ -94,7 +102,6 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
                     navController.navigate(R.id.nav_post_fragment)
 
                 }
-
 
             }
         }
