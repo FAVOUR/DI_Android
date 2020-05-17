@@ -90,8 +90,10 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
             }
 
             R.id.post ->{
-                navController.navigate(R.id.nav_post_fragment)
+                if(isDestinationPreviouslyOpened(R.id.post)){
+                    navController.navigate(R.id.nav_post_fragment)
 
+                }
 
 
             }
@@ -99,5 +101,14 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
         item.isChecked = true //Heights  the text that it has been clicked
         drawer_layout.closeDrawer(GravityCompat.START)
         return false
+    }
+
+    fun  isDestinationPreviouslyOpened(destination :Int):Boolean{
+         return   destination != navController.currentDestination!!.id
+    }
+
+    override fun onNavigateUp(): Boolean {
+        NavigationUI.navigateUp(navController,drawer_layout)
+        return true
     }
 }
