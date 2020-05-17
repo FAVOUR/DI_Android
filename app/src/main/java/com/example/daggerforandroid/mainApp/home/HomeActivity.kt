@@ -58,7 +58,7 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
        navController = Navigation.findNavController(this ,R.id.nav_host_fragment)
 
          NavigationUI.setupWithNavController(nav_view,navController)
-         NavigationUI.setupActionBarWithNavController(this,navController)
+         NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout) //adding the drawerLayout makes the hamburger  icon aoppear
          NavigationUI.navigateUp(navController,drawer_layout)
          nav_view.setNavigationItemSelectedListener(this)
 
@@ -89,7 +89,7 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
 
             }
         }
-        item.isChecked = true //Heights  the Item that it has been clicked
+        item.isChecked = true //Heights  the text that it has been clicked
         drawer_layout.closeDrawer(GravityCompat.START)
         return false
     }
