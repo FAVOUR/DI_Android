@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
+import androidx.navigation.*
+import androidx.navigation.ui.NavigationUI
 import com.example.daggerforandroid.R
 import com.example.daggerforandroid.application.SessionManager
 import com.example.daggerforandroid.auth.activity.AuthActivity
@@ -18,12 +21,15 @@ import com.example.daggerforandroid.mainApp.auth.model.AuthStatus
 import com.example.daggerforandroid.mainApp.auth.model.User
 import com.example.daggerforandroid.mainApp.home.fragment.PostFragment
 import com.example.daggerforandroid.mainApp.home.fragment.ProfileFragment
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListener {
 
+   lateinit var  navController: NavController
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +39,7 @@ class HomeActivity : BaseActivity() {
      Toast.makeText(this,"Welcome to this App",Toast.LENGTH_SHORT).show()
 
         setupFragment()
+
 
     }
 
@@ -48,9 +55,13 @@ class HomeActivity : BaseActivity() {
 
 
      fun setupFragment(){
-         var fragment = supportFragmentManager.beginTransaction()
-                                             .replace(R.id.fragment_container,PostFragment())
-                                             .commit()
+       navController = Navigation.findNavController(this ,R.id.nav_host_fragment)
+
+         NavigationUI.setupWithNavController(nav_view,navController)
+         NavigationUI.setupActionBarWithNavController(this,navController)
+         NavigationUI.navigateUp(navController,drawer_layout)
+         nav_view.setNavigationItemSelectedListener(this)
+
      }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -64,5 +75,21 @@ class HomeActivity : BaseActivity() {
              else -> return super.onOptionsItemSelected(item)
 
          }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+
+            R.id.profile ->{
+
+            }
+
+            R.id.post ->{
+
+            }
+        }
+        item.setChecked(true)
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return false
     }
 }

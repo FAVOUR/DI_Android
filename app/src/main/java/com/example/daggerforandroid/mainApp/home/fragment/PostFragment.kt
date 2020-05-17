@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_posts.*
 import javax.inject.Inject
 
-class PostFragment : DaggerFragment(), NavigationView.OnNavigationItemSelectedListener{
+class PostFragment : DaggerFragment(){
 
     @Inject
     lateinit var viewmodelProviderFactory: ViewModelProviderFactory
@@ -91,19 +91,5 @@ class PostFragment : DaggerFragment(), NavigationView.OnNavigationItemSelectedLi
 
      }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-         when(item.itemId){
 
-             R.id.profile ->{
-
-             }
-
-             R.id.post ->{
-
-             }
-         }
-//        item.setChecked(true)
-        drawer_layout.closeDrawer(GravityCompat.START)
-            return false
-    }
 }
