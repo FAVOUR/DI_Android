@@ -58,7 +58,7 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
        navController = Navigation.findNavController(this ,R.id.nav_host_fragment)
 
          NavigationUI.setupWithNavController(nav_view,navController)
-         NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout) //adding the drawerLayout makes the hamburger  icon aoppear
+         NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout)  //adding the drawerLayout makes the hamburger  icon aoppear
          NavigationUI.navigateUp(navController,drawer_layout)
          nav_view.setNavigationItemSelectedListener(this)
 
