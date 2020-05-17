@@ -90,7 +90,7 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
             }
 
             R.id.post ->{
-                if(isDestinationPreviouslyOpened(R.id.post)){
+                if(isDestinationPreviouslyOpened(R.id.nav_post_fragment)){
                     navController.navigate(R.id.nav_post_fragment)
 
                 }
@@ -107,7 +107,7 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
          return   destination != navController.currentDestination!!.id
     }
 
-    override fun onNavigateUp(): Boolean {
+    override fun onSupportNavigateUp(): Boolean {
         NavigationUI.navigateUp(navController,drawer_layout)
         return true
     }
