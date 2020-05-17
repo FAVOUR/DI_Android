@@ -58,8 +58,8 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
        navController = Navigation.findNavController(this ,R.id.nav_host_fragment)
 
          NavigationUI.setupWithNavController(nav_view,navController)
-         NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout)  //adding the drawerLayout makes the hamburger  icon aoppear
-         NavigationUI.navigateUp(navController,drawer_layout)
+         NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout)  //adding the drawerLayout makes the hamburger  icon appear
+//         NavigationUI.navigateUp(navController,drawer_layout)
          nav_view.setNavigationItemSelectedListener(this)
 
      }
@@ -80,12 +80,19 @@ class HomeActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
 
+
             R.id.profile ->{
-             navController.navigate(R.id.nav_profile_fragment)
+                var  controller = NavOptions.Builder()
+                    .setPopUpTo(R.id.nav_fragment,true)
+                    .build()
+
+                navController.navigate(R.id.nav_profile_fragment,null,controller)
             }
 
             R.id.post ->{
                 navController.navigate(R.id.nav_post_fragment)
+
+
 
             }
         }
