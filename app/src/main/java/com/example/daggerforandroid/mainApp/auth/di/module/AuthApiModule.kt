@@ -10,6 +10,7 @@ import javax.inject.Named
 @Module
 class AuthApiModule {
 
+
     @AuthScope
     @Provides
     @Named("auth_user") //This is how to differentiate a method that has the same type so there can possibly identify teh variable been referred to
